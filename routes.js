@@ -1,3 +1,6 @@
+// base
+const BASE = "http://localhost:4000/";
+
 // Global
 const HOME = "/";
 const JOIN = "/join";
@@ -32,6 +35,7 @@ const FACEBOOK = "/auth/facebook";
 const FACEBOOK_CALLBACK = "/auth/facebook/callback";
 
 const routes = {
+  base: BASE,
   home: HOME,
   join: JOIN,
   login: LOGIN,
