@@ -117,4 +117,3 @@ static
 .yarn/install-state.gz
 .pnp.*
 package-lock.json
-.DS_Store
