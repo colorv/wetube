@@ -126,6 +126,9 @@ table {
 a {
   all: unset;
   cursor: pointer;
+  &:visited {
+    color: unset;
+  }
 }
 
 *,
