@@ -71,7 +71,10 @@ export const getEditVideo = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
-    if (video.creator !== req.user.id) {
+    const creator = `${video.creator}`;
+    const user = req.user.id;
+
+    if (creator !== user) {
       throw Error();
     } else {
       res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
@@ -146,6 +149,30 @@ export const postAddComment = async (req, res) => {
       creator: user.id,
     });
     video.comments.push(newComment.id);
+    video.save();
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+// Remove Comment
+
+export const postRemoveComment = async (req, res) => {
+  const {
+    params: { id },
+    body: { comment },
+    user,
+  } = req;
+  try {
+    console.log(user);
+    const video = await Video.findById(id);
+    const removeComment = await Comment.remove({
+      text: comment,
+      creator: user.id,
+    });
+    video.comments.pop(removeComment.id);
     video.save();
   } catch (error) {
     res.status(400);

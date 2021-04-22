@@ -2,12 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .video__player {
-    video {
-      width: 850px;
-      height: 700px;
-    }
-  }
+  width: 850px;
   .video__info {
     width: 100%;
     max-width: 850px;
@@ -39,6 +34,9 @@
     }
   }
   .video__comments {
+    width: 100%;
+    max-width: 850px;
+
     margin-top: 25px;
     text-align: center;
     .video__comment-number {
@@ -53,14 +51,41 @@
     }
     .video__comments-list {
       margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
       li {
+        width: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         background-color: #3498db;
         color: white;
-        padding: 15px 30px;
+        padding: 15px 20px;
         border-radius: 20px;
-        border-bottom-left-radius: 0px;
+        &:nth-child(odd) {
+          margin-right: auto;
+          border-bottom-left-radius: 0px;
+        }
+        &:nth-child(even) {
+          margin-left: auto;
+          border-bottom-right-radius: 0px;
+        }
         &:not(:last-child) {
           margin-bottom: 15px;
+        }
+        span {
+          margin: 0px 5px;
+        }
+        button {
+          width: 25px;
+          height: 25px;
+          padding: 0px;
+          box-shadow: none;
+          &:focus {
+            outline: none;
+          }
         }
       }
     }
