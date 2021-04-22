@@ -23,6 +23,7 @@
       margin-bottom: 15px;
     }
     .video__title {
+      color: white;
       font-size: 22px;
       font-weight: 300;
     }
@@ -31,6 +32,7 @@
     }
     .video__description {
       font-size: 16px;
+      color: rgba(255, 255, 255, 0.5);
     }
   }
   .video__comments {
@@ -46,23 +48,33 @@
       margin-top: 25px;
       width: 100%;
       input {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.8);
         width: 100%;
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.4);
+        }
       }
     }
     .video__comments-list {
-      margin-top: 50px;
+      width: 50%;
+      margin: auto;
+      margin-top: 40px;
+      padding: 20px 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-color: $youtube-header;
+      border-radius: 15px;
 
       li {
         width: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #3498db;
+        background-color: rgba(255, 255, 255, 0.1);
         color: white;
-        padding: 15px 20px;
+        padding: 10px;
         border-radius: 20px;
         &:nth-child(odd) {
           margin-right: auto;
@@ -79,9 +91,11 @@
           margin: 0px 5px;
         }
         button {
-          width: 25px;
-          height: 25px;
+          width: 20px;
+          height: 20px;
+          font-size: 5px;
           padding: 0px;
+          background-color: unset;
           box-shadow: none;
           &:focus {
             outline: none;

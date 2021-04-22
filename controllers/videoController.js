@@ -3,6 +3,7 @@ import Video from "../models/Video";
 import Comment from "../models/Comment";
 
 // Home
+
 export const home = async (req, res) => {
   try {
     const videos = await Video.find({});
@@ -14,6 +15,7 @@ export const home = async (req, res) => {
 };
 
 // Search
+
 export const search = async (req, res) => {
   const {
     query: { term: searchingBy },
@@ -30,6 +32,7 @@ export const search = async (req, res) => {
 };
 
 // Video Upload
+
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload" });
 
@@ -50,6 +53,7 @@ export const postUpload = async (req, res) => {
 };
 
 // Video Detail
+
 export const videoDetail = async (req, res) => {
   const {
     params: { id },
@@ -65,6 +69,7 @@ export const videoDetail = async (req, res) => {
 };
 
 // Edit Video
+
 export const getEditVideo = async (req, res) => {
   const {
     params: { id },
@@ -98,13 +103,16 @@ export const postEditVideo = async (req, res) => {
 };
 
 // Video Delete
+
 export const deleteVideo = async (req, res) => {
   const {
     params: { id },
   } = req;
   try {
     const video = await Video.findById(id);
-    if (video.creator !== req.user.id) {
+    const creator = `${video.creator}`;
+    const user = req.user.id;
+    if (creator !== user) {
       throw Error();
     } else {
       await Video.findOneAndRemove({ _id: id });
@@ -166,13 +174,11 @@ export const postRemoveComment = async (req, res) => {
     user,
   } = req;
   try {
-    console.log(user);
     const video = await Video.findById(id);
-    const removeComment = await Comment.remove({
+    await Comment.remove({
       text: comment,
       creator: user.id,
     });
-    video.comments.pop(removeComment.id);
     video.save();
   } catch (error) {
     res.status(400);

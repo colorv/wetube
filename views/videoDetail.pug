@@ -37,5 +37,5 @@ block content
                     li
                         span=comment.text
                         if loggedUser 
-                            if video.creator.id === loggedUser.id
-                            button(id="jsRemoveBtn") ❌
+                            if comment.creator == loggedUser.id
+                                button(id="jsRemoveBtn") ❌
