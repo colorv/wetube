@@ -73,9 +73,10 @@
         justify-content: space-between;
         align-items: center;
         background-color: rgba(255, 255, 255, 0.1);
-        color: white;
         padding: 10px;
         border-radius: 20px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.3);
         &:nth-child(odd) {
           margin-right: auto;
           border-bottom-left-radius: 0px;
@@ -88,6 +89,8 @@
           margin-bottom: 15px;
         }
         span {
+          font-size: 15px;
+          color: white;
           margin: 0px 5px;
         }
         button {
