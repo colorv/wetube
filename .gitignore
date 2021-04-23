@@ -100,6 +100,7 @@ dist
 .fusebox/
 uploads
 static
+build
 
 # DynamoDB Local files
 .dynamodb/
