@@ -155,6 +155,7 @@ export const postAddComment = async (req, res) => {
     const newComment = await Comment.create({
       text: comment,
       creator: user.id,
+      name: user.name,
     });
     video.comments.push(newComment.id);
     video.save();
@@ -178,6 +179,7 @@ export const postRemoveComment = async (req, res) => {
     await Comment.remove({
       text: comment,
       creator: user.id,
+      name: user.name,
     });
     video.save();
   } catch (error) {
