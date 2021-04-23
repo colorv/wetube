@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
 import path from "path";
+import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import { loaclasMiddleware } from "./middlewares";
 import routes from "./routes";
@@ -37,6 +38,7 @@ app.use(
     }),
   })
 );
+app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());

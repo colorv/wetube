@@ -1,0 +1,31 @@
+@keyframes flashAnimation {
+  0% {
+    transform: translateY(-70px);
+  }
+  5% {
+    transform: translateY(0px);
+  }
+  90% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-70px);
+  }
+}
+
+.flash-message__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  z-index: 10;
+  background-color: $red;
+  animation: flashAnimation 4s ease-in-out forwards;
+  .flash-message__text {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
